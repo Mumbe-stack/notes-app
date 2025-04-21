@@ -1,9 +1,13 @@
-import React from 'react'
-
-const Search = () => {
+function SearchBar({ search, setSearch}) {
   return (
-    <div>Search</div>
-  )
+    <input
+      className="search-bar"
+      type="text"
+      placeholder="Search notes..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+  );
 }
 
-export default Search
+export default SearchBar;

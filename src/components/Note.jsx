@@ -47,8 +47,12 @@ function Note({ note, deleteNote, updateNote }) {
           <p>{note.description}</p>
           <div className="note-date">Created: {formattedDate}</div>
           <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={() => deleteNote(note.id)}>Delete</button>
-        </>
+          <button onClick={() => {
+          if (window.confirm('Are you sure you want to delete this note?')) {
+          deleteNote(note.id)
+        }
+          }}>Delete</button>
+          </>
       )}
     </div>
   );

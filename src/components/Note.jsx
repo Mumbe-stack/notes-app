@@ -5,7 +5,6 @@ function Note({ note, deleteNote, updateNote }) {
   const [editTitle, setEditTitle] = useState(note.title);
   const [editDescription, setEditDescription] = useState(note.description);
   
-  // If the note doesn't have a createdAt date, set it to current date
   const createdAt = note.createdAt || new Date().toISOString();
   
   const handleUpdate = () => {
@@ -13,12 +12,11 @@ function Note({ note, deleteNote, updateNote }) {
       ...note, 
       title: editTitle, 
       description: editDescription,
-      createdAt: createdAt // Preserve the original creation date
+      createdAt: createdAt 
     });
     setIsEditing(false);
   };
   
-  // Format the date to be more readable
   const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',

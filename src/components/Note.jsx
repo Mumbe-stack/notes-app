@@ -4,11 +4,28 @@ function Note({ note, deleteNote, updateNote }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(note.title);
   const [editDescription, setEditDescription] = useState(note.description);
-
+  
+  // If the note doesn't have a createdAt date, set it to current date
+  const createdAt = note.createdAt || new Date().toISOString();
+  
   const handleUpdate = () => {
-    updateNote({ ...note, title: editTitle, description: editDescription });
+    updateNote({ 
+      ...note, 
+      title: editTitle, 
+      description: editDescription,
+      createdAt: createdAt // Preserve the original creation date
+    });
     setIsEditing(false);
   };
+  
+  // Format the date to be more readable
+  const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 
   return (
     <div className="note">
@@ -23,12 +40,14 @@ function Note({ note, deleteNote, updateNote }) {
             value={editDescription}
             onChange={(e) => setEditDescription(e.target.value)}
           ></textarea>
+          <div className="note-date">Created: {formattedDate}</div>
           <button onClick={handleUpdate}>Save</button>
         </>
       ) : (
         <>
           <h3>{note.title}</h3>
           <p>{note.description}</p>
+          <div className="note-date">Created: {formattedDate}</div>
           <button onClick={() => setIsEditing(true)}>Edit</button>
           <button onClick={() => deleteNote(note.id)}>Delete</button>
         </>

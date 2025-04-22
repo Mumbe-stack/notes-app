@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import SearchBar from './components/SearchBar';
@@ -6,10 +6,17 @@ import EditPanel from './components/EditPanel';
 import './App.css';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() => {
+    const savedNotes = localStorage.getItem('notes');
+    return savedNotes ? JSON.parse(savedNotes) : [];
+  })
   const [search, setSearch] = useState('');
   const [darkMode, setDarkMode] = useState(false);
   const [noteBeingEdited, setNoteBeingEdited] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
 
   const addNote = (note) => {
     setNotes([{ ...note, createdAt: new Date().toISOString() }, ...notes]);

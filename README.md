@@ -78,7 +78,9 @@ npm start
 1. Managing Notes
 In the main App component:
 - Use a state variable to keep track of all notes.
-- Notes should be stored as objects with id, title, and description fields.- The app should have functions to add, edit, and delete notes.
+- Notes should be stored as objects with title and description fields.- The app should have functions to add, edit, and delete notes.
+- Added notes are stored locally and retained even upon refresh.
+- When deleting a note, one has to confirm if they are sure they want to delete the note to avoid accidental deletion of notes.
 
 2. Adding Notes
 - Provide a form with fields for the note’s title and description.

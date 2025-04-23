@@ -24,7 +24,7 @@ Whether you are jotting down quick ideas, managing to-dos, or planning projects,
     Search Notes: Instantly filter notes by typing into the search bar.
 
 # Settings (live link)
-
+https://notes-app-git-notes-mumbes-projects.vercel.app/
 
 # Technologies
     React – Front-end JavaScript library for building user interfaces.
@@ -40,7 +40,7 @@ Whether you are jotting down quick ideas, managing to-dos, or planning projects,
 https://github.com/Mumbe-stack/notes-app
 
 ## Navigate into the project folder
-cd cd notes-app
+cd notes-app
 
 ## Install dependencies
 npm install
@@ -53,7 +53,26 @@ npm run dev
 npm start
 
 # Project Structure
-
+├── public/
+│ └── vite.svg
+├── src/
+│ ├── assets/
+│ │ └── simple-image.png │ ├── components/
+│ │ ├── EditPanel.jsx
+│ │ ├── Note.jsx
+│ │ ├── NoteForm.jsx
+│ │ └── SearchBar.jsx
+│ ├── App.css
+│ ├── App.jsx
+│ ├── index.css
+│ └── main.jsx
+├── .gitignore
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+└── vite.config.js
 
 #  Workflow
 1. Managing Notes
@@ -93,6 +112,10 @@ If you are looking for a simple tool to capture your thoughts or learn how basic
 Happy note-taking!
 
 # Contributors
+-Mercy Munyongwe (https://github.com/Mumbe-stack)
+-Nevil Oporo (https://github.com/Neviloporo)
+-Joy Mitchel (https://github.com/JoyMitchel)
+-Brian Njuguna (https://github.com/NJUGUNA-png)
 
 
 
